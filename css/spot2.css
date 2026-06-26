@@ -1,0 +1,201 @@
+/* -----------------------------------------
+   全体設定
+----------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    /* 💡 ヘッダーのメニューをクリックしたときに、するすると滑らかにスクロールさせる設定 */
+    scroll-behavior: smooth;
+    /* 固定ヘッダーに文字が隠れないように、スクロール位置を調整 */
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #333;
+    background-color: #fcfdfe;
+    line-height: 1.8;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* -----------------------------------------
+   ヘッダー（上に固定）
+----------------------------------------- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px); /* 背景をほんのりぼかすおしゃれエフェクト */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #00b4d8; /* アクセントの沖縄ブルー */
+}
+
+nav a {
+    margin-left: 20px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #555;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #00b4d8;
+}
+
+/* -----------------------------------------
+   メインビジュアル
+----------------------------------------- */
+.hero {
+    height: 50vh;
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1543157145-f78c636d023d?auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* -----------------------------------------
+   本題（スポット紹介のレイアウト）
+----------------------------------------- */
+.container {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 5%;
+}
+
+/* 5つのスポットを繰り返すパーツ */
+.spot-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 100px; /* スポットごとの間隔 */
+    gap: 5%;
+}
+
+/* 💡 偶数番目（2つ目、4つ目）のスポットは、写真と文字の左右を反転させるお洒落テクニック */
+.spot-section.reverse {
+    flex-direction: row-reverse;
+}
+
+/* 写真エリア */
+.spot-image {
+    flex: 1; /* 幅を均等にする */
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* テキスト情報エリア */
+.spot-info {
+    flex: 1; /* 幅を均等にする */
+}
+
+.spot-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #00b4d8;
+    opacity: 0.3;
+    display: block;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.spot-info h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 15px;
+}
+
+/* キャッチーな説明（太字で目立たせる） */
+.catchphrase {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #00b4d8;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    border-left: 4px solid #00b4d8;
+    padding-left: 12px;
+}
+
+/* 詳細な説明文 */
+.description {
+    font-size: 0.95rem;
+    color: #666;
+    text-align: justify;
+}
+
+/* -----------------------------------------
+   フッター
+----------------------------------------- */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    background-color: #222;
+    color: #fff;
+    font-size: 0.85rem;
+}
+
+/* -----------------------------------------
+   スマホ用の表示調整
+----------------------------------------- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    nav a {
+        margin: 0 8px;
+        font-size: 0.85rem;
+    }
+    .spot-section, .spot-section.reverse {
+        flex-direction: column; /* スマホでは縦並びにする */
+        margin-bottom: 60px;
+    }
+    .spot-image {
+        width: 100%;
+        height: 250px;
+        margin-bottom: 20px;
+    }
+}
